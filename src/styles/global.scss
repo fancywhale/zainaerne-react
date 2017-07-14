@@ -1,0 +1,280 @@
+@import 'palette';
+
+html, body {
+  margin: 0px;
+  font-family: "Hiragino Sans GB", 华文细黑, STHeiti, 微软雅黑, "Microsoft YaHei", SimHei, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  color: rgb(72, 72, 72);
+  background-color: rgb(255, 255, 255);
+  -webkit-font-smoothing: antialiased;
+}
+
+.full-content {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 65px;
+  bottom: 0px;
+}
+
+div.list {
+  margin-bottom: 40px;
+  padding: 0px 8px;
+  & > .list-header {
+    font-size: 22px;
+    line-height: 28px !important;
+    letter-spacing: -0.2px !important;
+    color: #484848 !important;
+    font-weight: 700 !important;
+  }
+  div.list-item-container{
+    margin-left: -8px;
+    margin-right: -8px;
+    & > .list-item {
+      width: 33.333333333333333%;
+      display: inline-block;
+      margin-bottom: 30px;
+      .list-item-inner {
+        padding: 0px 8px;
+        & > .img-holder {
+          height: 220px;
+          overflow: hidden;
+          & > div {
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size:cover;
+          }
+        }
+        & > .info {
+          padding-top: 8px;
+          line-height: 1.43;
+          font-size: 15px;
+          color: #484848 !important;
+          & > .main-info {
+            font-weight: 700 !important;
+            .fa-map-marker {
+              font-size: 20px;
+              margin-right: 3px;
+              position: relative;
+              top: 1px;
+              color: map-get($colors, primary);
+            }
+          }
+          & .sub-info {
+            font-weight: 300;
+          }
+          & .third-info {
+            font-size: 12px;
+            font-weight: 300;
+            span.money {
+              color: map-get($colors, accent);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+button {
+  span.fa.fa-caret-down {
+    margin-left: 8px;
+  }
+}
+
+*[color=primary] {
+  color: map-get($colors, primary);
+}
+
+*[color=accent] {
+  color: map-get($colors, accent);
+}
+
+*[color=warn] {
+  color: map-get($colors, warn);
+}
+
+.avatar {
+  text-align: center;
+  display: inline-block;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0px;
+    position: relative;
+    margin-top: 5px;
+  }
+}
+
+h6.row-title {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.palette {
+  margin-right: 10px;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: inline-block;
+  &:last-child{
+    margin-right: 0px;
+  }
+}
+
+input {
+  outline: none;
+}
+
+button {
+  outline: none;
+  &.clear {
+    background: transparent;
+    border: hidden;
+    padding: 0px;
+  }
+}
+
+.dropdown.open {
+  & > button {
+    border-bottom: solid 1px map-get($colors, primary) !important;
+    margin-bottom: -1px;
+  }
+}
+
+.lg-form {
+  border: 1px solid #dce0e0;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 #dce0e0;
+  margin-left: 0;
+  margin-right: 0;
+  display: table;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  .form-item {
+    border-left: solid 1px #dce0e0;
+    display: table-cell;
+    padding: 15px 16px 8px 16px;
+    font-size: 19px;
+    
+    &:first-child {
+      border-left: none;
+    }
+    & > div {
+      line-height: 57px;
+      color: map-get($colors, sub-font);
+      text-align: center;
+      input[type=text] {
+        background-color: transparent;
+        border: hidden;
+        font-size: 19px;
+        line-height: 22px;
+        letter-spacing: -0.5px;
+        padding: 8px 0px;
+        width: 100%;
+
+        &::-webkit-input-placeholder, &::-moz-placeholder, &::-ms-input-placeholder{
+          font-size: 19px;
+          color: map-get($colors, sub-font);
+        }
+      }
+    }
+    &.submit {
+      padding-bottom: 16px;
+      vertical-align: middle;
+      width: 200px;
+      button {
+        background-color: map-get($colors, primary);
+        border: hidden;
+        color: #fff;
+        padding: 16px 10px;
+        font-size: 18px;
+        width: 100%;
+        line-height: 24px;
+        border-radius: 4px;
+      }
+    }
+    & > label {
+      font-size: 15px;
+    }
+  }
+}
+
+div.color-picker-container {
+  margin-left: -10px;
+  margin-right: -10px;
+  label.color-picker {
+    padding: 10px;
+    cursor: pointer;
+    div.picker-inner {
+      display: inline-block;
+      width: 60px;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      transition: border 0.2s;
+      border: solid 1px map-get($colors, border);
+
+      span.palette {
+        margin: 0px;
+      }
+
+      div {
+        span {
+          line-height: 34px;
+        }
+      }
+    }
+    
+    input[type=checkbox]:checked+.picker-inner {
+      border: solid 1px map-get($colors, primary) !important;
+    }
+
+    input[type=checkbox] {
+      display: none;
+    }
+
+
+  }
+}
+
+input.app-form-control[type="text"] {
+  border: none;
+  height: 32px;
+  font-size: 17px;
+  border-bottom: map-get($colors, border) solid 1px;
+  margin-right: 15px;
+  width: 140px;
+  &:last-child{
+    margin-right: 0px;
+  }
+
+  &.lng {
+    width: 300px;
+  }
+
+  &:focus {
+    border-bottom: map-get($colors, primary) solid 1px;
+  }
+}
+
+.dropdown.app-form-control {
+  height: 32px;
+  font-size: 17px;
+  margin-right: 15px;
+}
+
+.wechat-background {
+  background-color: map-get($colors, wechat);
+  color: #fff;
+}

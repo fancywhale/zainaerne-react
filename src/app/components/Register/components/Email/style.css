@@ -1,0 +1,43 @@
+@import './palette';
+
+.Email {
+  div.header {
+    margin-bottom: 16px;
+    h4 {
+      margin-bottom: 6px;
+      font-size: 20px;
+      margin-top: 0;
+      font-weight: 700;
+    }
+  }
+
+  .decorativeInput {
+    background-image: url(/images/text-field-icons.png);
+    background-repeat: no-repeat;
+    background-position: right 9px;
+    box-sizing: border-box;
+    display: block;
+    font-size: 14px;
+    height: 40px;
+    padding: 10px 35px 10px 10px;
+    width: 100% !important;
+    background-size: 40px 171px;
+    &[type=tel] {
+      background-position: right -142px;
+    }
+    &[type="password"] {
+      background-position: right -90px;
+    }
+    &[type="email"] {
+      background-position: right -40px;
+    }
+  }
+  .terms {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  button.block {
+    padding: 20px 27px;
+    font-weight: 500;
+  }
+}

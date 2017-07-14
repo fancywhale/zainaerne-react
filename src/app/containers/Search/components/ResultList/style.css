@@ -1,0 +1,36 @@
+@import './palette';
+
+.ResultList {
+  .sideHeader {
+    line-height: 34px;
+    padding: 8px;
+    margin-bottom: 30px;
+    color: #767676 !important;
+    font-size: 15px;
+    .leftContent {
+      width: 50%;
+      display: inline-block;
+    }
+    .rightContent {
+      width: 50%;
+      display: inline-block;
+      text-align: right;
+      .tip {
+        width: 32px;
+        border-radius: 50%;
+        border: solid 1px map-get($colors, accent);
+        color: map-get($colors, accent);
+        font-size: 23px;
+        height: 32px;
+        text-align: center;
+        line-height: 32px;
+        margin-left: 10px;
+        cursor: pointer;
+        &:hover {
+          color: #fff;
+          background: map-get($colors, accent);
+        }
+      }
+    }
+  }
+}

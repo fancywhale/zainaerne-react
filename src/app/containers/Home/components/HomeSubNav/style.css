@@ -1,0 +1,9 @@
+@import './palette.scss';
+
+.HomeSubNav {
+  font-size: 24px;
+  & a > h3 {
+    display: inline-block;
+    color: map-get($colors, primary);
+  }
+}

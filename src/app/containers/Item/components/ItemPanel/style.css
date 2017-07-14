@@ -1,0 +1,15 @@
+@import './palette';
+
+.ItemPanel {
+  .getItemCmp {
+    padding: 15px;
+    border: solid 1px map-get($colors, border);
+    .iconHolder {
+      line-height: 70px;
+    }
+  }
+  .foundInfo {
+    font-size: 13px;
+    color: map-get($colors, sub-font);
+  }
+}

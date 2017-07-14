@@ -1,0 +1,12 @@
+.Register {
+  .orSperator {
+    margin-top: -15px;
+    text-align: center;
+    span {
+      padding: 8px;
+      background: #fff;
+      position: relative;
+      top: 30px;
+    }
+  }
+}

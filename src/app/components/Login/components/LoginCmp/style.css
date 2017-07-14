@@ -1,0 +1,54 @@
+@import './palette';
+
+.LoginCmp {
+  .rememberMe {
+    font-weight: normal;
+    margin-top: 10px;
+    input[type="checkbox"] {
+      margin-right: 10px;
+      position: relative;
+      -webkit-appearance: none;
+      height: 1.25em;
+      width: 1.25em;
+      vertical-align: top;
+      outline: none;
+      border: 1px solid #aaa;
+      border-radius: 2px;
+      background-color: #fff;
+      top: -3px;
+      
+      &:checked:before {
+        content: "\2713";
+        position: absolute;
+        font-size: 0.85em;
+        left: 1px;
+        text-align: center;
+        width: 1.25em;
+        color: map-get($colors, primary);
+      }
+    }
+  }
+  .decorativeInput {
+    background-image: url(/images/text-field-icons.png);
+    background-repeat: no-repeat;
+    background-position: right 9px;
+    box-sizing: border-box;
+    display: block;
+    font-size: 14px;
+    height: 40px;
+    padding: 10px 35px 10px 10px;
+    width: 100% !important;
+    background-size: 40px 171px;
+    &[type=tel] {
+      background-position: right -130px;
+    }
+    &[type="password"] {
+      background-position: right -78px;
+    }
+  }
+
+  button.block {
+    padding: 20px 27px;
+    font-weight: 500;
+  }
+}

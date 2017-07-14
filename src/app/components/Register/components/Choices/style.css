@@ -1,0 +1,27 @@
+@import './palette';
+
+.Choices {
+  .wechatBackground {
+    background: map-get($colors, wechat);
+    color: #fff;
+    &:hover {
+      background: map-get($colors, wechat);
+      color: #fff;
+    }
+  }
+  .iconContainer {
+    position: absolute;
+    font-size: 18px;
+    top: 20px;
+    left: 20px;
+  }
+  .iconBtn {
+    position: relative;
+  }
+  
+  button.block {
+    position: relative;
+    padding: 20px 27px;
+    font-weight: 500;
+  }
+}

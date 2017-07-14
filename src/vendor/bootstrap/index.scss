@@ -1,0 +1,153 @@
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/blob/master/LICENSE)
+ */
+
+// Core variables and mixins
+@import "_variables";
+
+// ********************************
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+// Reset and dependencies
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/print";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
+
+// Core CSS
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/code";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/tables";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/forms";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+
+// Components
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/navs";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/navbar";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/pagination";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/pager";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/labels";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/badges";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/alerts";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/media";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/list-group";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/panels";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/wells";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/close";
+
+// Components w/ JavaScript
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/modals";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/popovers";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/carousel";
+
+// Utility classes
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
+
+.modal-dialog {
+  margin-top: 50px;
+  .modal-content {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+    border-radius: 0px;
+  }
+}
+
+.btn{
+  &.btn-large {
+    padding: 9px 27px;
+    font-size: 16px;
+    font-weight: 700;    
+  }
+  &.outline {
+    background-color: transparent;
+    &.btn-success {
+      color: $brand-success;
+      border-color: $brand-success;
+    }
+    &.btn-info {
+      color: $brand-info;
+      border-color: $brand-info;
+    }
+    &.btn-warning {
+      color: $brand-warning;
+      border-color: $brand-warning;
+    }
+    &.btn-danger {
+      color: $brand-danger;
+      border-color: $brand-danger;
+    }
+  }
+  &.block {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+  }
+}
+
+.dropdown-menu {
+  transform: translateY(15px);
+  &::before {
+    top: -10px;
+    border: 10px solid transparent;
+    border-top: 0;
+    border-bottom-color: rgba(0,0,0,0.1);
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 9px;
+  }
+  &::after{
+    bottom: auto;
+    top: -9px;
+    border: 10px solid transparent;
+    border-top: 0;
+    border-bottom-color: #fff;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 9px;
+  }
+}
+
+ul.dropdown-menu {
+  li {
+    margin: 16px 0px;
+    font-size: 16px;
+  }
+}
+
+input.form-control {
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  background-color: #fff;
+  color: #484848;
+  height: 40px;
+  padding: 10px 35px 10px 10px;
+}
+
+.form-group {
+  margin-bottom: 6px;
+}
+
+.form-control {
+  &.lg {
+    height: 64px;
+    font-size: 16px;
+  }
+  box-shadow: none;
+}

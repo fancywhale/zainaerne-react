@@ -1,0 +1,91 @@
+@import './palette';
+
+.HomeSearchForm {
+  border: 1px solid #dce0e0;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 #dce0e0;
+  margin-left: 0;
+  margin-right: 0;
+  display: table;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  .searchItem {
+    display: table-cell;
+    border-left: solid 1px #dce0e0;
+    padding: 15px 16px 8px 16px;
+    & > div {
+      color: map-get($colors, sub-font);
+    }
+    &.date {
+      font-size: 19px;
+      button {
+        padding: 8px 0px;
+        line-height: 22px;
+      }
+      .date-holder {
+        width: 78px;
+        float: left;
+      }
+      .iconHolder {
+        margin: 0px 5px;
+      }
+      svg {
+        vertical-align: middle;
+        fill: #484848;
+        height: 24px;
+        width: 24px;
+      }
+    }
+    &.location {
+      width: 35%;
+    }
+    &.itemType {
+      width: 17%;
+      button {
+        background-color: transparent;
+        border: hidden;
+        font-size: 19px;
+        line-height: 22px;
+        font-weight: normal;
+        padding: 8px 0px;
+      }
+    }
+    &:last-child, &:first-child {
+      border-left: none;
+    }
+    &.search {
+      padding-bottom: 16px;
+      vertical-align: middle;
+      button {
+        background-color: map-get($colors, primary);
+        border: hidden;
+        color: #fff;
+        padding: 16px 10px;
+        font-size: 18px;
+        width: 100%;
+        line-height: 24px;
+        border-radius: 4px;
+      }
+    }
+    & > label {
+      font-size: 15px;
+      
+    }
+    & > div {
+      input[type=text] {
+        background-color: transparent;
+        border: hidden;
+        font-size: 19px;
+        line-height: 22px;
+        letter-spacing: -0.5px;
+        padding: 8px 0px;
+
+        &::-webkit-input-placeholder, &::-moz-placeholder, &::-ms-input-placeholder{
+          font-size: 19px;
+          color: map-get($colors, sub-font);
+        }
+      }
+    }
+  }
+}
