@@ -1,0 +1,12 @@
+.UserInfo {
+  .baseInfo {
+    .row {
+      margin-bottom: 24px;
+      .col-sm-3 {
+        font-size: 14px;
+        padding-top: 9px;
+        padding-bottom: 8px;
+      }
+    }
+  }
+}

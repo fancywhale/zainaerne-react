@@ -55,7 +55,9 @@ export class Header extends React.Component<IProps, IState> {
       <div className={myClasses}>
         <div className={this.state.isHover ? `${styles.header} ${styles.hover}` : styles.header}>
           <div className={styles.logo}>
-            <Logo size={32} />
+            <a href="/">
+              <Logo size={32} />
+            </a>  
           </div>
           <div className={styles.center} />
           <div className={styles.menu}>

@@ -1,0 +1,24 @@
+@import './palette';
+
+.StepNav {
+  display: inline-block;
+  & > span {
+    padding: 15px;
+    line-height: 32px;
+    text-align: center;
+    min-width: 40px;
+  }
+  &.active {
+    color: map-get($colors, primary);
+  }
+  &.enabled {
+    span {
+      cursor: pointer;
+    }
+    &.active {
+      span {
+        cursor: default;
+      }
+    }
+  }
+}

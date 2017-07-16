@@ -1,0 +1,42 @@
+@import './palette';
+
+.ColorItem {
+  padding: 10px;
+  cursor: pointer;
+  div.itemInner {
+    display: inline-block;
+    width: 60px;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    transition: border 0.2s;
+    border: solid 1px map-get($colors, border);
+
+    span.palette {
+      margin: 0px;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: inline-block;
+    }
+
+    div {
+      span {
+        line-height: 34px;
+      }
+    }
+  }
+  
+  input[type=checkbox]:checked+.itemInner {
+    border: solid 1px map-get($colors, primary) !important;
+  }
+
+  input[type=checkbox] {
+    display: none;
+  }
+}
+
+.ColorItemContainer{
+  margin-left: -10px;
+  margin-right: -10px;
+}

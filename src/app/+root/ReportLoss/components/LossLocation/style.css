@@ -1,0 +1,13 @@
+.LossLocation {
+  .locationtype {
+    width: 140px;
+  }
+
+  .mapContainer {
+    height: 400px;
+    &> div {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

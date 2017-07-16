@@ -1,0 +1,19 @@
+@import './palette';
+
+.SideNav {
+  padding: 16px;
+  border: solid 1px map-get($colors, border);
+  & > ul {
+    padding: 0px;
+    list-style: none;
+    & > li {
+      & > a {
+        text-decoration: none;
+        color: #000;
+        &.active {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

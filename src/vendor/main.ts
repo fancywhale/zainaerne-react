@@ -7,3 +7,5 @@
 
 require('./bootstrap/index.scss');
 require('./font-awesome/index.scss');
+require('./index.scss');
+
