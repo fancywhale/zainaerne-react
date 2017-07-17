@@ -10,7 +10,7 @@
     }
   }
   .decorativeInput {
-    background-image: url(/images/text-field-icons.png);
+    background-image: url(../../../../../resources/images/text-field-icons.png);
     background-repeat: no-repeat;
     background-position: right 9px;
     box-sizing: border-box;

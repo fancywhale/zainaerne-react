@@ -5,7 +5,7 @@ const style = require('./style.css');
 export class SideNav extends React.Component<any, any> {
   public render() {
     return (
-      <div className={style.SideNav}>
+      <div className={[style.SideNav, 'panel panel-default'].join(' ')}>
         <ul>
           <li>
             <a className={style.active}>编辑个人资料</a>
