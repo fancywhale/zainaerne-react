@@ -278,3 +278,32 @@ input.app-form-control[type="text"] {
   background-color: map-get($colors, wechat);
   color: #fff;
 }
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  position: relative;
+  -webkit-appearance: none;
+  height: 1.25em;
+  width: 1.25em;
+  vertical-align: top;
+  outline: none;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  background-color: #fff;
+  top: -3px;
+  
+  &:checked:before {
+    content: "\2713";
+    position: absolute;
+    font-size: 0.85em;
+    left: 1px;
+    text-align: center;
+    width: 1.25em;
+    color: map-get($colors, primary);
+  }
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px;
+}

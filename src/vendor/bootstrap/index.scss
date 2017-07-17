@@ -68,7 +68,11 @@
 }
 
 .btn{
-  &.btn-large {
+  &.dropdown-toggle{
+    padding: 9px !important;
+    font-weight: normal !important;
+  }
+  &.btn-lg {
     padding: 9px 27px;
     font-size: 16px;
     font-weight: 700;    
@@ -150,4 +154,18 @@ input.form-control {
     font-size: 16px;
   }
   box-shadow: none;
+}
+
+table.table {
+  color: map-get($colors, sub-font);
+  & > thead > tr > th {
+    border-bottom-width: 1px;
+    background-color: #F5F6FA;
+  }
+}
+
+.panel {
+  .panel-heading {
+    font-size: 16px;
+  }
 }

@@ -7,7 +7,7 @@ export const ItemPanel = () => (
       <p className={style.foundTip}>
         <span className="fa fa-info-circle fa-lg" color="primary" />
         &nbsp;如果您觉得有可能是您的物品，可点击下方按钮认领。</p>
-      <button className="btn btn-danger btn-large btn-block">立刻认领</button>
+      <button className="btn btn-danger btn-lg btn-block">立刻认领</button>
       <hr />
       <div className="row">
         <div className="col-xs-8">

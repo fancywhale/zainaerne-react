@@ -7,7 +7,7 @@ export class Choices extends React.Component<any, any> {
     return (
       <div className={style.Choices}>
         <div>
-          <button className={[style.wechatBackground, style.block, "btn icon-btn btn-large block"].join(' ')}>
+          <button className={[style.wechatBackground, style.block, "btn icon-btn btn-lg block"].join(' ')}>
             <span className={style.iconContainer}>
               <i className="fa fa-wechat" />
             </span>

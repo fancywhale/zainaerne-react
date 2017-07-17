@@ -39,7 +39,7 @@ export class ItemDetail extends React.Component<any, any> {
         </div>
         <hr />
         <div className="text-center">
-          <button className="btn btn-primary btn-large">提交</button>
+          <button className="btn btn-primary btn-lg">提交</button>
         </div>
       </div>
     );

@@ -1,0 +1,12 @@
+.MailList {
+  width: 100%;
+  table{
+    & > tbody {
+      & > tr {
+        & > td.titleCol {
+          width: 60%;
+        }
+      }
+    }
+  }
+}

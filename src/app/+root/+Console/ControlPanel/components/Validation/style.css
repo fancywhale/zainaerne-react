@@ -1,0 +1,15 @@
+@import './palette';
+
+.Validation {
+  ul {
+    margin-bottom: 0px;
+    & > li {
+      font-size: 14px;
+      margin-bottom: 18px;
+      & > span {
+        color: map-get($colors, sub-font);
+        font-size: 13px;
+      }
+    }
+  }
+}

@@ -41,7 +41,7 @@ export class Mobile extends React.Component<IProps, any> {
           <small>点击“注册”即表示我已同意在那儿呢的<a href="#">服务条款</a>及<a href="#">支付条款</a>。</small>
         </div>
         <div>
-          <button className={["block btn btn-large btn-success", style.block].join(' ')} type="button">注册</button>
+          <button className={["block btn btn-lg btn-success", style.block].join(' ')} type="button">注册</button>
         </div>
       </div>
     );

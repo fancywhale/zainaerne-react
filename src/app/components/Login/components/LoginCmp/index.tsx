@@ -31,7 +31,7 @@ export class LoginCmp extends React.Component<any, any> {
               value="true" />记住我</label>
         </div>
         <div>
-          <button className={[style.block, 'btn btn-large btn-success block'].join(' ')} type="button">登录</button>
+          <button className={[style.block, 'btn btn-lg btn-success block'].join(' ')} type="button">登录</button>
         </div>
       </div>
     );

@@ -37,6 +37,9 @@
       & > li:first-child {
         & > a {
           padding-left: 0px;
+          &::before {
+            left: 0px;
+          }
         }
       }
     }

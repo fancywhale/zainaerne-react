@@ -38,11 +38,7 @@ var config = {
   },
 
   module: {
-    rules: [{
-        enforce: 'pre',
-        test: /\.tsx?$/,
-        loader: 'tslint-loader'
-      },
+    rules: [
       {
         test: /\.tsx?$/,
         loader: 'react-hot-loader!awesome-typescript-loader'
@@ -59,7 +55,7 @@ var config = {
         test: /\.css$/,
         include: path.resolve('./src/app'),
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
+          fallback: 'style-loader',
           loader: [
             'css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]',
             'postcss-loader',
@@ -76,7 +72,7 @@ var config = {
         test: /\.css$/,
         exclude: path.resolve('./src/app'),
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
+          fallback: 'style-loader',
           loader: [
             'css-loader',
             {
@@ -91,7 +87,7 @@ var config = {
       {
         test: /\.scss$/,
         loaders: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
+          fallback: 'style-loader',
           loader: [
             'css-loader',
             {

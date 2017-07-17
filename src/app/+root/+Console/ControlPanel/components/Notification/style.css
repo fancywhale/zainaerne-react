@@ -1,0 +1,30 @@
+.Notification {
+  ul {
+    margin-bottom: 0px;
+    & > li {
+      & > div {
+        display: table;
+        & > div {
+          display: table-cell;
+          vertical-align: middle;
+          &:first-child {
+            padding-right: 20px;
+          }
+          &:last-child{
+            width: 40px;
+            position: relative;
+            text-align: center;
+            li {
+              font-size:20px;
+            }
+          }
+        }
+      }
+      &:last-child {
+        hr {
+          display: none;
+        }
+      }
+    }
+  }
+}
