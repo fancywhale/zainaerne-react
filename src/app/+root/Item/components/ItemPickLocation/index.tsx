@@ -2,7 +2,7 @@ import * as React from 'react';
 
 declare const BMap;
 
-const style = require('style.css');
+const style = require('./style.css');
 
 export class ItemPickLocation extends React.Component<any, any>{
   public render() {

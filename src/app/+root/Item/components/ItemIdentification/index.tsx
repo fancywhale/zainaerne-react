@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const style = require('style.css');
+const style = require('./style.css');
 
 export const ItemIdentification = () => (
   <div className={style.ItemIdentification}>

@@ -33,5 +33,5 @@ export function configureStore(history, initialState?: IStore): Redux.Store<ISto
     });
   }
 
-  return store;
+  return store as any;
 }
