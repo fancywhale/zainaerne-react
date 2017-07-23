@@ -7,7 +7,7 @@ const { connect } = require('react-redux');
 const style = require('./style.css');
 
 interface IProps {
-  routing: RouterState;
+  routing?: RouterState;
 }
 
 @connect(
