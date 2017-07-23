@@ -1,4 +1,5 @@
-import { IAppAction, IApp } from 'models/app';
+import { StoreAction } from '../../../models/StoreAction';
+import { IApp } from 'models/app';
 
 
 /** Action Types */
@@ -8,6 +9,7 @@ export const LOGIN_OPEN: string = 'app/LOGIN_OEPN';
 export const LOGIN_CLOSE: string = 'app/LOGIN_CLOSE';
 export const REGISTER_OPEN: string = 'app/REGISTER_OPEN';
 export const REGISTER_CLOSE: string = 'app/REGISTER_CLOSE';
+export const ON_ERROR: string = 'APP/ON_ERROR';
 
 /** Initial State */
 const initialState: IApp = {
@@ -17,7 +19,7 @@ const initialState: IApp = {
 };
 
 /** Reducer */
-export function appReducer(state = initialState, action: IAppAction) {
+export function appReducer(state = initialState, action: StoreAction<IApp>) {
   switch (action.type) {
     case APP_MODE:
       return Object.assign({}, state, {
@@ -48,45 +50,44 @@ export function appReducer(state = initialState, action: IAppAction) {
       return Object.assign({}, state, {
         registerOpen: false,
       });
-      
     default:
       return state;
   }
 }
 
 /** Action Creator */
-export function toAppMode(): IAppAction {
+export function toAppMode(): StoreAction<IApp> {
   return {
     type: APP_MODE,
   };
 }
 
 /** Action Creator */
-export function toWebMode(): IAppAction {
+export function toWebMode(): StoreAction<IApp> {
   return {
     type: WEB_MODE,
   };
 }
 
-export function openLoginModal(): IAppAction {
+export function openLoginModal(): StoreAction<IApp> {
   return {
     type: LOGIN_OPEN
   };
 }
 
-export function closeLoginModal(): IAppAction {
+export function closeLoginModal(): StoreAction<IApp> {
   return {
     type: LOGIN_CLOSE
   };
 }
 
-export function openRegisterModal(): IAppAction {
+export function openRegisterModal(): StoreAction<IApp> {
   return {
     type: REGISTER_OPEN
   };
 }
 
-export function closeRegisterModal(): IAppAction {
+export function closeRegisterModal(): StoreAction<IApp> {
   return {
     type: REGISTER_CLOSE
   };

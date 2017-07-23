@@ -1,6 +1,5 @@
 import * as e6p from 'es6-promise';
 (e6p as any).polyfill();
-import 'isomorphic-fetch';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -11,12 +10,14 @@ const { ReduxAsyncConnect } = require('redux-connect');
 import { configureStore } from './app/redux/store';
 import 'isomorphic-fetch';
 import routes from './app/routes';
+import { ApiClient } from 'redux/helpers/client';
 
 require('./styles/global.scss');
-
+const client = new ApiClient();
 const store = configureStore(
   browserHistory,
   window.__INITIAL_STATE__,
+  client
 );
 const history = syncHistoryWithStore(browserHistory, store);
 const connectedCmp = (props) => <ReduxAsyncConnect {...props} />;
@@ -27,7 +28,7 @@ ReactDOM.render(
       history={history}
       render={connectedCmp}
     >
-      {routes}
+      {routes(store, client)}
     </Router>
   </Provider>,
   document.getElementById('app'),

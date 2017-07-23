@@ -1,4 +1,4 @@
-const appConfig = require('../config/main');
+import AppConfig from '../config/main.js';
 
 import * as e6p from 'es6-promise';
 (e6p as any).polyfill();
@@ -13,11 +13,13 @@ import { syncHistoryWithStore } from 'react-router-redux';
 const { ReduxAsyncConnect, loadOnServer } = require('redux-connect');
 import { configureStore } from './app/redux/store';
 import routes from './app/routes';
+const cookieParser = require('cookie-parser')
 
 import { Html } from './app/+root';
+import { ApiClient } from 'redux/helpers/client';
 const manifest = require('../build/manifest.json');
 
-const express = require('express');
+import * as express from 'express';
 const path = require('path');
 const compression = require('compression');
 const Chalk = require('chalk');
@@ -25,6 +27,7 @@ const favicon = require('serve-favicon');
 
 const app = express();
 
+app.use(cookieParser())
 app.use(compression());
 
 if (process.env.NODE_ENV !== 'production') {
@@ -50,13 +53,15 @@ app.use(favicon(path.join(__dirname, 'public/favicon.ico')));
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-app.get('*', (req, res) => {
+app.get('*', async (req, res) => {
   const location = req.url;
-  const memoryHistory = createMemoryHistory(req.originalUrl);
-  const store = configureStore(memoryHistory);
+  const memoryHistory = createMemoryHistory(req.originalUrl as any);
+  const client = new ApiClient(req, res);
+
+  const store = configureStore(memoryHistory, undefined, client);
   const history = syncHistoryWithStore(memoryHistory, store);
 
-  match({ history, routes, location },
+  match({ history, routes: routes(store, client), location },
     (error, redirectLocation, renderProps) => {
       if (error) {
         res.status(500).send(error.message);
@@ -79,12 +84,12 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(appConfig.port, appConfig.host, (err) => {
+app.listen(AppConfig.port, AppConfig.host, (err) => {
   if (err) {
     console.error(Chalk.bgRed(err));
   } else {
     console.info(Chalk.black.bgGreen(
-      `\n\n💂  Listening at http://${appConfig.host}:${appConfig.port}\n`,
+      `\n\n💂  Listening at http://${AppConfig.host}:${AppConfig.port}\n`,
     ));
   }
 });

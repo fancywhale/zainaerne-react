@@ -8,6 +8,7 @@
         "src/app/shared/components/*"
       ]
     },
+    "lib": ["es6", "dom"],
     "outDir": "build",
     "module": "commonjs",
     "target": "es5",

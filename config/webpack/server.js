@@ -17,6 +17,7 @@ fs.readdirSync('node_modules')
 var config = {
   externals: nodeModules,
   target: 'node',
+  devtool: 'source-map',
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -34,60 +35,65 @@ var config = {
 
   module: {
     loaders: [{
-        test: /\.(jpe?g|png|gif)$/i,
-        loader: 'url-loader?limit=1000&name=images/[hash].[ext]'
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
-      },
-      {
-        test: /\.jsx$/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "url-loader?limit=10000&mimetype=application/font-woff"
-      },
-      {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "url-loader?limit=10000&mimetype=image/svg+xml&name=fonts/[hash].[ext]"
-      },
-      {
-        test: /\.css$/,
-        loaders: [
-          'isomorphic-style-loader',
-          'css-loader?modules&importLoaders=2&&localIdentName=[local]___[hash:base64:5]',
-          {
-            loader: "sass-loader",
-            options: {
-              includePaths: [path.resolve('./src/styles')]
-            }
+      test: /\.(jpe?g|png|gif)$/i,
+      loader: 'url-loader?limit=1000&name=images/[hash].[ext]'
+    },
+    {
+      test: /\.json$/,
+      loader: 'json-loader'
+    },
+    {
+      test: /\.jsx$/,
+      loader: 'babel-loader'
+    },
+    {
+      test: /\.tsx?$/,
+      loader: 'awesome-typescript-loader',
+      exclude: /node_modules/
+    },
+    {
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: "url-loader?limit=10000&mimetype=application/font-woff"
+    },
+    {
+      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: "url-loader?limit=10000&mimetype=image/svg+xml&name=fonts/[hash].[ext]"
+    },
+    {
+      test: /\.css$/,
+      loaders: [
+        'isomorphic-style-loader',
+        'css-loader?modules&importLoaders=2&&localIdentName=[local]___[hash:base64:5]',
+        {
+          loader: "sass-loader",
+          options: {
+            includePaths: [path.resolve('./src/styles')]
           }
-        ]
-      },
+        }
+      ]
+    },
     ]
   },
 
   plugins: [
-      new webpack.LoaderOptionsPlugin({
-        debug: false,
-        options: {
-          postcss: function () {
-            return [
-              postcssNext(),
-              postcssAssets({
-                relative: true
-              }),
-            ];
-          },
-        }
-      })
+    new webpack.LoaderOptionsPlugin({
+      debug: false,
+      options: {
+        postcss: function () {
+          return [
+            postcssNext(),
+            postcssAssets({
+              relative: true
+            }),
+          ];
+        },
+      }
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        BROWSER: JSON.stringify(false),
+      }
+    })
   ],
 
   node: {

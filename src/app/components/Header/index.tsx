@@ -1,31 +1,41 @@
+import { IStore } from '../../redux/IStore';
 import * as React from 'react';
-import { Link } from 'react-router';
 const { connect } = require('react-redux');
+const { asyncConnect } = require('redux-connect');
 
 import { Logo } from 'components/Logo/index';
 import { IApp } from 'models/app';
-import { openLoginModal, openRegisterModal } from 'redux/modules/app/index';
+import { IAuth } from 'models/auth';
+import { LoggingIn } from './components/LoggingIn';
+import { NotLoggedIn } from './components/NotLoggedIn';
 const styles = require('./style.css');
 
 interface IProps {
   app: IApp;
+  auth: IAuth;
+  openLoginModal: any;
+  openRegisterModal: any;
 }
 
 interface IState {
   isHover: boolean;
 }
 
+@asyncConnect([{
+  promise: ({ store: { dispatch } }) => {
+    dispatch();
+    // return dispatch(getStars());
+  },
+}])
 @connect(
-  (state) => ({ app: state.app }),
-  (dispatch) => ({
-    openLoginModal: () => dispatch(openLoginModal()),
-    openRegisterModal: () => dispatch(openRegisterModal()),
-  })
+  (state: IStore) => ({
+    ...state
+  }),
 )
 export class Header extends React.Component<IProps, IState> {
 
   constructor(
-    public props
+    public props: IProps
   ) {
     super(props);
     this.state = {
@@ -49,7 +59,7 @@ export class Header extends React.Component<IProps, IState> {
   public render() {
     const mode = this.props.app.mode;
     const myClasses = mode === 'APP' ? [styles.app, styles.Header].join(' ') : styles.Header;
-    const { openLoginModal, openRegisterModal } = this.props;
+    const { auth } = this.props;
       
     return (
       <div className={myClasses}>
@@ -62,26 +72,10 @@ export class Header extends React.Component<IProps, IState> {
           <div className={styles.center} />
           <div className={styles.menu}>
             <nav className="navigation-container">
-              <ul className="list">
-                <li className="item">
-                  <Link to="/"><span>首页</span></Link>
-                </li>
-                <li className="item">
-                  <a data-target="#mobileModal"><span>移动端</span></a>
-                </li>
-                <li className="item">
-                  <a><span>帮助</span></a>
-                </li>
-                <li className="item">
-                  <a><span>关于我们</span></a>
-                </li>
-                <li className="item">
-                  <a onClick={openRegisterModal}><span>注册</span></a>
-                </li>
-                <li className="item">
-                  <a onClick={openLoginModal}><span>登录</span></a>
-                </li>
-              </ul>
+              
+                {
+                  auth.loggingIn ? <LoggingIn /> : <NotLoggedIn/>
+                }
             </nav>
           </div>
         </div>

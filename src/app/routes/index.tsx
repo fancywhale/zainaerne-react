@@ -1,5 +1,11 @@
+import { checkLoging } from '../+actions/login';
+import { getUserInfo } from '../redux/modules/auth';
 import * as React from 'react';
 import { IndexRoute, Route } from 'react-router';
+import { ACTIONS } from '+actions/index';
+import { ApiClient } from 'redux/helpers/client';
+import { ProgramError } from '+root/+Errors/ProgramError/index';
+import { IStore } from 'redux/IStore';
 
 import {
   App,
@@ -16,18 +22,31 @@ import {
   ControlPanel
 } from '+root/+Console';
 
-export default (
-  <Route path="/" component={App}>
+export default (store: Redux.Store<IStore>, client: ApiClient) => (
+  <Route path="/" component={App} onEnter={(nextState, replace, callback) => {
+    console.log(nextState, replace)
+    store.dispatch(getUserInfo(client));
+    callback();
+  }}>
     <IndexRoute component={Home} />
     <Route path="about" component={About} />
     <Route path="item" component={Item} />
     <Route path="search" component={Search} />
     <Route path="report-loss" component={ReportLoss} />
-    <Route path="console/">
+    <Route path="error" component={ProgramError} />
+    <Route path="console/" onEnter={checkLoging(client)}>
       <IndexRoute component={EditUser} />
       <Route path="user-info" component={EditUser} />
       <Route path="mailbox" component={Mailbox} />
       <Route path="control-panel" component={ControlPanel} />
-    </Route>  
+    </Route>
+    {
+      /* actions  */
+      ACTIONS.map((actionConf, key) => <Route
+        path={actionConf.path}
+        key={key}
+        onEnter={actionConf.action.handler(client, store)}
+      />)
+    }
   </Route>
 );

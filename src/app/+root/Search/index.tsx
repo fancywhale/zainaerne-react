@@ -1,3 +1,4 @@
+import { StoreAction } from '../../models/StoreAction';
 import * as React from 'react';
 const { connect } = require('react-redux');
 
@@ -5,13 +6,13 @@ import { FilterPanel } from './components/FilterPanel';
 import { ResultList } from './components/ResultList';
 import { SearchMap } from './components/SearchMap';
 import { toAppMode, toWebMode } from 'redux/modules/app';
-import { IApp, IAppAction } from 'models/app';
+import { IApp } from 'models/app';
 const style = require('./style.css');
 
 interface IProps {
   app: IApp,
-  toAppMode: Redux.ActionCreator<IAppAction>;
-  toWebMode: Redux.ActionCreator<IAppAction>; 
+  toAppMode: Redux.ActionCreator<StoreAction<IApp>>;
+  toWebMode: Redux.ActionCreator<StoreAction<IApp>>; 
 }
 
 @connect(

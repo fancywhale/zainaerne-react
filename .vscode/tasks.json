@@ -12,6 +12,10 @@
       "args": ["start"]
     },
     {
+      "taskName": "build",
+      "args": ["run", "build"]
+    },
+    {
       "taskName": "production",
       "args": ["build:prod"]
     },

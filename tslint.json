@@ -25,6 +25,9 @@
     ],
     "jsx-alignment": [
       false
-    ]
+    ],
+    "no-unused-locals": [false],
+    "no-unused-parameters": [false],
+    "no-unused-variable": [false, "check-parameters", "react"]
   }
 }

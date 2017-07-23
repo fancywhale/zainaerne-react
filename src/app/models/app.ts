@@ -5,8 +5,3 @@ export interface IApp {
   loginOpen?: boolean;
   registerOpen?: boolean;
 }
-
-export interface IAppAction {
-  type: string;
-  payload?: IApp;
-}

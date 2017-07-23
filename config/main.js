@@ -1,6 +1,6 @@
 /** General Configurations Like PORT, HOST names and etc... */
 
-var config = {
+const config = {
   env: process.env.NODE_ENV || 'development',
   host: process.env.HOST || 'localhost',
   port: process.env.PORT || 8080,
@@ -18,7 +18,9 @@ var config = {
         { name: 'description', content: 'React Redux Typescript' },
       ]
     }
-  }
+  },
+  backendUrl: 'http://zainaerne.cn',
+  apiUrl: 'http://zainaerne.cn/api',
 };
 
-module.exports = config;
+export default config;
