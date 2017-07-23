@@ -19,19 +19,25 @@ export class Choices extends React.Component<IProps, any> {
 
   private getWXUrl() {
     const appID = 'wx012310856a3d916f';
-    const redirectUri = encodeURIComponent('http://zainaerne.cn/oauth2/wx');
     const scope = 'snsapi_login';
-    const wxUri = 'https://open.weixin.qq.com/connect/qrconnect';
+    const wxUri = '//open.weixin.qq.com';
     const currentUrl = this.props.routing.locationBeforeTransitions.pathname;
+    const redirectUri = url.format({
+      protocol: 'http',
+      host: 'zainaerne.cn',
+      query: { from: currentUrl },
+      pathname: '/oauth2/wx'
+    });
     
     return url.format({
+      protocol: 'https',
+      host: wxUri,
+      pathname: '/connect/qrconnect',
       query: {
-        location: wxUri,
         scope: scope,
         redirect_uri: redirectUri,
         appid: appID,
         hash: 'wechat_redirect',
-        from: currentUrl,
       }
     });
   }
