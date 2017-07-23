@@ -4,7 +4,7 @@ import { getCookieFromRequest, getCookie } from 'helpers/utils';
 import { ApiClient } from 'redux/helpers/client';
 
 export const LoginAction: IAction = {
-  handler: (client, store) => async (nextState, replaceState, callback) => {
+  handler: (client) => async (nextState, replaceState, callback) => {
     console.log(nextState);
 
     try {
@@ -14,34 +14,36 @@ export const LoginAction: IAction = {
           authorization: token
         }
       });
-      client.res.cookie('token', token, { maxAge: 900000, httpOnly: true });
-      client.res.cookie('user', JSON.stringify(user), { maxAge: 900000, httpOnly: true });
+      client.res.cookie('token', token, { maxAge: 900000, httpOnly: false });
+      client.res.cookie('user', JSON.stringify(user), { maxAge: 900000, httpOnly: false });
+
+      const from = nextState.params['from'];
+      if (from) {
+        replaceState(from);
+      } else {
+        replaceState('/');
+      }
       
-      console.log(user);
-      replaceState('/item');
     } catch (e) {
-      console.log(store);
       const path = url.format({
         query: {
-          message: '服务器错误，请重试。'
+          message: e.message
         },
         pathname: '/error'
       });
       replaceState(path);
       console.log(e);
     }
-    
     callback();
   }
 };
 
 export function checkLoging(client: ApiClient) {
-  return async (nextState, replaceState, callback) => {
+  return async (nextState, replaceState) => {
     console.log(nextState);
     const token = process.env.BROWSER ? getCookie('cookie') : getCookieFromRequest(client.req, 'cookie');
     if (!token) {
       replaceState('/');
     }
-    return callback();
   }
 }

@@ -22,34 +22,39 @@ const initialState: IApp = {
 export function appReducer(state = initialState, action: StoreAction<IApp>) {
   switch (action.type) {
     case APP_MODE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         mode: 'APP',
-      });
-
+      };
     case WEB_MODE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         mode: 'WEB',
-      });
+      };
 
     case LOGIN_OPEN:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         loginOpen: true,
-      });  
-
+        
+      };
     case LOGIN_CLOSE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         loginOpen: false,
-      });
+      };
 
     case REGISTER_OPEN:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         registerOpen: true,
-      });
-    
+        
+      };
     case REGISTER_CLOSE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         registerOpen: false,
-      });
+      };
     default:
       return state;
   }

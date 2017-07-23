@@ -11,10 +11,8 @@ import { NotLoggedIn } from './components/NotLoggedIn';
 const styles = require('./style.css');
 
 interface IProps {
-  app: IApp;
-  auth: IAuth;
-  openLoginModal: any;
-  openRegisterModal: any;
+  app?: IApp;
+  auth?: IAuth;
 }
 
 interface IState {
@@ -51,7 +49,7 @@ export class Header extends React.Component<IProps, IState> {
     }
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     this.onScroll();
     window.addEventListener('scroll', this.onScroll.bind(this));
   }
@@ -72,10 +70,9 @@ export class Header extends React.Component<IProps, IState> {
           <div className={styles.center} />
           <div className={styles.menu}>
             <nav className="navigation-container">
-              
-                {
-                  auth.loggingIn ? <LoggingIn /> : <NotLoggedIn/>
-                }
+              {
+                auth.loggingIn ? <LoggingIn /> : <NotLoggedIn/>
+              }
             </nav>
           </div>
         </div>

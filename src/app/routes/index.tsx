@@ -23,10 +23,8 @@ import {
 } from '+root/+Console';
 
 export default (store: Redux.Store<IStore>, client: ApiClient) => (
-  <Route path="/" component={App} onEnter={(nextState, replace, callback) => {
-    console.log(nextState, replace)
+  <Route path="/" component={App} onEnter={() => {
     store.dispatch(getUserInfo(client));
-    callback();
   }}>
     <IndexRoute component={Home} />
     <Route path="about" component={About} />

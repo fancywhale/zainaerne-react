@@ -9,14 +9,19 @@ interface IProps {
 }
 
 @connect(
-  () => { },
+  () => ({}),
   (dispatch) => ({
-    openLoginModal: () => dispatch(openLoginModal()),
-    openRegisterModal: () => dispatch(openRegisterModal()),
+    openLoginModal: () => {
+      return dispatch(openLoginModal())
+    },
+    openRegisterModal: () => {
+      return dispatch(openRegisterModal())
+    },
   })
 )
 export class NotLoggedIn extends React.Component<IProps> {
   public render() {
+    const { openRegisterModal, openLoginModal } = this.props;
     return (
       <ul className="list">
         <li className="item">

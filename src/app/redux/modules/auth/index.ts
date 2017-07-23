@@ -10,7 +10,6 @@ const LOGIN_SUCCESS = 'app/auth/LOGIN_SUCCESS';
 const LOGIN_FAIL = 'app/auth/LOGIN_FAIL';
 const LOGOUT = 'app/auth/LOGOUT';
 const LOGOUT_SUCCESS = 'app/auth/LOGOUT_SUCCESS';
-const LOGOUT_FAIL = 'app/auth/LOGOUT_FAIL';
 const TOKEN_LOGIN = 'app/auth/TOKEN_LOGIN'
 const GET_USER_INFO = 'app/auth/LOGIN_BY_TOKEN';
 const REMOVE_USER_TOKEN = 'app/auth/REMOVE_USER_TOKEN';
@@ -137,11 +136,4 @@ export function getUserInfo(client?: ApiClient): StoreAction<IAuth> {
       type: REMOVE_USER_TOKEN,
     }
   }
-}
-
-export function logout() {
-  return {
-    types: [LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAIL],
-    promise: (client) => client.get('/logout')
-  };
 }

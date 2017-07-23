@@ -1,7 +1,7 @@
 export function getCookie(name) {
   var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
   if (arr = document.cookie.match(reg)) {
-    const str = decodeURI(arr[2]);
+    const str = decodeURIComponent(arr[2]);
     return isJson(str) ? JSON.parse(str) : str;
   }
   else {

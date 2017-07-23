@@ -35,16 +35,16 @@
     & .center{
       width: 100%;
     }
-    & .menu {
-      & nav {
-        & ul {
+    .menu {
+      & > nav {
+        & > ul {
           list-style: none;
           display: table;
           height: 61px;
           margin: 0px;
           & > li {
             display: table-cell;
-            & a, & button{
+            & > a, & > button{
               padding: 0px 16px;
               white-space: nowrap;
               border: none;

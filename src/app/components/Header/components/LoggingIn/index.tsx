@@ -9,10 +9,10 @@ import { DropdownToggle } from 'shared/components/Dropdown/index';
 import { Avatar } from 'shared/components/Avatar/index';
 
 interface IProps {
-  openLoginModal: any;
-  openRegisterModal: any;
-  auth: IAuth;
+  auth?: IAuth;
 }
+
+const style = require('./style.css');
 
 @connect(
   (state: IStore) => ({ ...state }),
@@ -22,10 +22,11 @@ interface IProps {
   })
 )
 export class LoggingIn extends React.Component<IProps> {
+
   public render() {
     const { auth } = this.props;
     return (
-      <ul className="list">
+      <ul className={["list", style.LoggingIn].join(' ')}>
         <li className="item">
           <Link to="/"><span>首页</span></Link>
         </li>
@@ -38,15 +39,13 @@ export class LoggingIn extends React.Component<IProps> {
         <li className="item">
           <a><span>关于我们</span></a>
         </li>
-        <li className="item">
-          <Dropdown id="dateDropdown">
+        <li className={["item", style.avatar].join(' ')}>
+          <Dropdown id="dateDropdown" pullRight={true}>
             <DropdownToggle bsRole="toggle">
-              <Avatar src={auth.user.avatarUrl}/>
+              <Avatar src={auth.user.avatarUrl} />
             </DropdownToggle>
             <Dropdown.Menu>
-              <ul>
-                <li>注销</li>
-              </ul>
+              <li><a href="/logoutAction">注销</a></li>
             </Dropdown.Menu>
           </Dropdown>
         </li>

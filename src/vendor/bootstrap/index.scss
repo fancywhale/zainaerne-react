@@ -126,6 +126,17 @@
     position: absolute;
     left: 9px;
   }
+
+  &.dropdown-menu-right {
+    &::before {
+      left: initial;
+      right: 9px;
+    }
+    &::after {
+      left: initial;
+      right: 9px;
+    }
+  }
 }
 
 ul.dropdown-menu {
