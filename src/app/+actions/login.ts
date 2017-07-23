@@ -8,8 +8,8 @@ export const LoginAction: IAction = {
     console.log(nextState);
 
     try {
-      const { userID, token } = nextState.location.query;
-      const user = await client.get(`/users/${userID}`, {
+      const { uuid, token } = nextState.location.query;
+      const user = await client.get(`/users/${uuid}`, {
         headers: {
           authorization: token
         }
